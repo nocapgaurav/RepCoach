@@ -1,0 +1,18 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code temp files
+tempCodeRunnerFile.py
+
+# ML / Data artifacts
+*.pkl
+*.joblib
+*.h5
+
+# Data files (if not meant to be public)
+*.xlsx
+*.csv
+
+# macOS junk
+.DS_Store
