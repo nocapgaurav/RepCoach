@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Exercise Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-dumbbell"></i>
+                <h1>AI Exercise Tracker</h1>
+            </div>
+            <div class="controls">
+                <button id="startBtn" class="btn start"><i class="fas fa-play"></i> Start</button>
+                <button id="stopBtn" class="btn stop" disabled><i class="fas fa-stop"></i> Stop</button>
+                <button id="resetBtn" class="btn reset"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <img id="videoFeed" src="" alt="Camera Feed">
+                    <div class="loading-overlay active">
+                        <div class="spinner"></div>
+                        <p>Cliczk "Start" to begin tracking</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="section-title">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>Exercise Statistics</h2>
+                </div>
+                
+                <div class="current-info">
+                    <p id="currentExercise">Current Exercise: None</p>
+                    <p id="accuracyValue">Pose Accuracy: 0%</p>
+                    <div id="feedbackBox" class="feedback correct">
+                        <span id="feedbackText">Ready to start</span>
+                    </div>
+                </div>
+
+                <div class="exercise-stats">
+                    <div class="exercise-card">
+                        <div class="exercise-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="exercise-info">
+                            <h3>Bicep Curls</h3>
+                            <p id="bicepCount">0 reps</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-card">
+                        <div class="exercise-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div class="exercise-info">
+                            <h3>Squats</h3>
+                            <p id="squatCount">0 reps</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-card">
+                        <div class="exercise-icon">
+                            <i class="fas fa-hands"></i>
+                        </div>
+                        <div class="exercise-info">
+                            <h3>Lateral Raises</h3>
+                            <p id="lateralCount">0 reps</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="instructions">
+            <div class="section-title">
+                <i class="fas fa-info-circle"></i>
+                <h2>How to Use</h2>
+            </div>
+            <div class="instructions-content">
+                <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <p>Position yourself in front of the camera where your full body is visible</p>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">2</div>
+                    <p>Click "Start" to begin pose tracking</p>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">3</div>
+                    <p>Perform exercises: bicep curls, squats, or lateral raises</p>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">4</div>
+                    <p>The system will automatically detect and count your reps</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by MediaPipe & OpenCV | AI Exercise Tracker © 2025</p>
+            <div class="exercise-tips">
+                <details>
+                    <summary>Exercise Form Tips</summary>
+                    <div class="tips-content">
+                        <h4>Bicep Curl</h4>
+                        <p>Keep your upper arm stationary. Full range of motion: 30° to 160°.</p>
+                        
+                        <h4>Squat</h4>
+                        <p>Keep your back straight and knees aligned with toes. Range: 90° to 160°.</p>
+                        
+                        <h4>Lateral Raise</h4>
+                        <p>Lift arms to shoulder height. Keep motion controlled.</p>
+                    </div>
+                </details>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
